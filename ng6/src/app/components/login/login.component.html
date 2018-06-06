@@ -1,0 +1,31 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-lg-4 col-md-6 col-sm-12 mt-5">
+
+    <form  novalidate role="form" [formGroup]="form">
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control form-control-lg" formControlName="email">
+        <div *ngIf="submited && !form.controls.email.valid" class="text-danger">
+          <span *ngIf="form.controls.email.errors.required">Email is required</span>
+          <span *ngIf="form.controls.email.value && form.controls.email.errors.email">Invalid email address</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control form-control-lg" formControlName="password">
+        <div *ngIf="submited && !form.controls.password.valid" class="text-danger">
+          <span *ngIf="form.controls.password.errors.required">Password is required</span>
+        </div>
+      </div>
+
+      <div class="form-group mt-5">
+        <button type="button" class="mt-5 btn btn-block btn-lg btn-primary" [disabled]="loading" (click)="signin()">
+          Signin
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

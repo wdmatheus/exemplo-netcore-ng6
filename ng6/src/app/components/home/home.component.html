@@ -1,0 +1,33 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-6 mt-5">
+
+    <button type="button" class="btn btn-block btn-lg btn-dark" (click)="checkUserEmail()">
+      Check api user email
+    </button>
+
+    <div class="alert alert-info mt-5" *ngIf="msg$ | async as msg">
+      <h3>Api user email</h3>
+      <p>{{msg}}</p>
+    </div>
+
+  </div>
+
+  <div class="col-6 mt-5">
+
+    <button type="button" class="btn btn-block btn-lg btn-danger" (click)="checkUserInfo()">
+      Check api user info
+    </button>
+
+    <div class="alert alert-info mt-5" *ngIf="claims$ | async as claims">
+      <h3>Api user info</h3>
+      
+      <ul>
+        <li *ngFor="let claim of claims">
+          <strong>{{claim.key}}</strong>: {{claim.value}}
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
